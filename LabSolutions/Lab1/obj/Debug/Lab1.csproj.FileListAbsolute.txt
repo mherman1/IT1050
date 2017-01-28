@@ -1,0 +1,6 @@
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\bin\Debug\Lab1.exe
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\bin\Debug\Lab1.pdb
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\obj\Debug\Lab1.exe
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\Visual Studio\LabSolutions\Lab1\obj\Debug\Lab1.pdb
