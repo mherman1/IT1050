@@ -26,10 +26,10 @@
 
             fullName = firstName + " " + middleInitial + "." + " " + lastName;
 
-            System.Console.Write("What is your height in feet? Choose 4, 5, or 6. ");
+            System.Console.Write("What is your base height in feet? Choose 4, 5, or 6. ");
             heightFeet = int.Parse(System.Console.ReadLine());
 
-            System.Console.Write("How many inches beyond your height in feet are you? ");
+            System.Console.Write("How many inches beyond your base height in feet are you? ");
             heightInches = double.Parse(System.Console.ReadLine());
 
             totalHeightCM = ((heightFeet * 12) + heightInches) * 2.54;
