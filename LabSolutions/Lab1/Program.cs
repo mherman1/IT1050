@@ -29,7 +29,7 @@
             System.Console.Write("What is your base height in feet? Choose 4, 5, or 6. ");
             heightFeet = int.Parse(System.Console.ReadLine());
 
-            System.Console.Write("How many inches beyond your base height in feet are you? Convert fractions to a decimal. ");
+            System.Console.Write("How many inches beyond your base height in feet are you? Convert fractions to decimals. ");
             heightInches = double.Parse(System.Console.ReadLine());
 
             totalHeightCM = ((heightFeet * 12) + heightInches) * 2.54;
