@@ -1,0 +1,6 @@
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\bin\Debug\Lab2.exe
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\bin\Debug\Lab2.pdb
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\obj\Debug\Lab2.exe
+C:\Users\Annapolis\Documents\MFolder\CCC\IT1050\GitHub\IT1050\LabSolutions\Lab2\obj\Debug\Lab2.pdb
