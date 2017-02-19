@@ -5,26 +5,27 @@
         public string FirstName;
         public string LastName;
         public int Age;
-        //public Person Spouse; Not sure how to create the Spouse variable?...
-
+        public Person Spouse;
+        public static double SumOfAllAges;
         public void GetUserData()
         {
-            this.FirstName = Question.AskForString("What is your first name? ");
-            this.LastName = Question.AskForString("What is your last name? ");
-            this.Age = Question.AskForInteger("How old are you? ");
-            SumOfAllAges += Age;
-            //this.Spouse.FirstName = Question.AskForString("What is your spouse's first name? ");
-            //this.Spouse.Age = Question.AskForInteger("How old is your spouse? ");
-            //SumOfAllAges += Age;
+            System.Console.Write("What is your first name? ");
+            this.FirstName = System.Console.ReadLine();
+            System.Console.Write("What is your last name? ");
+            this.LastName = System.Console.ReadLine();
+            System.Console.Write("How old are you? ");
+            this.Age = int.Parse(System.Console.ReadLine());
+            System.Console.Write("What is your spouse's first name? ");
+            this.Spouse.FirstName = System.Console.ReadLine();
+            System.Console.Write("How old is your spouse? ");
+            this.Spouse.Age = int.Parse(System.Console.ReadLine());
+            this.Spouse.LastName = this.LastName;
+            SumOfAllAges += this.Age + this.Spouse.Age;
         }
-
-        public static double SumOfAllAges = 0;
-
         public string GetFullName()
         {
             return this.FirstName + " " + this.LastName;
         }
-
         public void PrintNameAndAge()
         {
             System.Console.WriteLine(GetFullName() + " " + "(" + Age + ")");
