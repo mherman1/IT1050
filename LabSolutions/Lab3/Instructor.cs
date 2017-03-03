@@ -18,7 +18,7 @@
 
         public string NameAndCourse()
         {
-            return Name + " is the " + CourseName + " teacher.";
+            return "Instructor: " + Name.PadRight(6) + " Course: " + CourseName;
         }
 
         public void PrintNameAndCourse()

@@ -20,12 +20,12 @@
 
         public string NameAndGrade()
         {
-            return Name + " has a grade of " + Grade;
+            return "Student: " + Name.PadRight(8) + " Grade: " + Grade;
         }
 
         public void PrintNameGradeAndTeacher()
         {
-            System.Console.WriteLine (NameAndGrade() + " and " + Teacher.NameAndCourse());
+            System.Console.WriteLine (NameAndGrade() + " ".PadRight(3) + Teacher.NameAndCourse());
         }
     }
 }
