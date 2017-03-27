@@ -28,11 +28,7 @@
             System.Console.Write("How many large sodas? ");
             this.LargeSoda = int.Parse(System.Console.ReadLine());
 
-            if (this.Popcorn == 1 && this.LargeSoda == 1)
-            {
-                this.TicketDiscount = 1;
-            }
-            else if (this.Popcorn >= this.LargeSoda)
+            if (this.Popcorn >= this.LargeSoda)
             {
                 this.TicketDiscount = this.LargeSoda;
             }
