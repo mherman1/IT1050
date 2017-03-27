@@ -1,4 +1,4 @@
-﻿namespace Lab4._1
+﻿namespace Lab4
 {
     class ConcessionOrder
     {
@@ -14,7 +14,7 @@
         private const double PopcornPrice = 4.50;
         private const double CandyPrice = 1.99;
         private double ConcessionCost = 0;
-        
+
         public void GetConcessionOrder()
         {
             System.Console.Write("How many candies? ");
@@ -32,7 +32,7 @@
             {
                 this.TicketDiscount = this.LargeSoda;
             }
-            else 
+            else
             {
                 this.TicketDiscount = this.Popcorn;
             }
@@ -80,5 +80,3 @@
 
     }
 }
-
-

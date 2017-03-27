@@ -1,10 +1,10 @@
-﻿namespace Lab4._1
+﻿namespace Lab4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            TicketOrder YourTicketOrder  = new TicketOrder();
+            TicketOrder YourTicketOrder = new TicketOrder();
             ConcessionOrder YourConcessionOrder = new ConcessionOrder();
 
             System.Console.WriteLine("Welcome to the MovieTicketCalculator!");

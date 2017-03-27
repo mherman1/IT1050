@@ -1,4 +1,4 @@
-﻿namespace Lab4._1
+﻿namespace Lab4
 {
     class TicketOrder
     {
@@ -43,7 +43,7 @@
         public void PopcornPromotion(ConcessionOrder concessionOrder)
         {
             if (NumberOfTickets >= 3)
-            { 
+            {
                 concessionOrder.AddPopcorn();
             }
         }
@@ -74,9 +74,9 @@
         public void SetTicketCost(double concessionCost)
         {
             this.GrandTotal = this.TicketCost + concessionCost;
-            System.Console.WriteLine("\nYour Grand Total: " + GrandTotal.ToString("c"));  
+            System.Console.WriteLine("\nYour Grand Total: " + GrandTotal.ToString("c"));
         }
 
-        
+
     }
 }
