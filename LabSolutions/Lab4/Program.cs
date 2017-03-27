@@ -1,46 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab4
+﻿namespace Lab4._1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Ticket MatineeChild = new Ticket("Matinee", "Child", 3.99);
-            Ticket MatineeAdult = new Ticket("Matinee", "Adult", 5.99);
-            Ticket MatineeSenior = new Ticket("Matinee", "Senior", 4.50);
-            Ticket EveningChild = new Ticket("Evening", "Child", 6.99);
-            Ticket EveningAdult = new Ticket("Evening", "Adult", 10.99);
-            Ticket EveningSenior = new Ticket("Evening", "Senior", 8.50);
+            TicketOrder YourTicketOrder  = new TicketOrder();
+            ConcessionOrder YourConcessionOrder = new ConcessionOrder();
 
-            System.Console.WriteLine("Welcome to MovieTickets!");
+            System.Console.WriteLine("Welcome to the MovieTicketCalculator!");
             System.Console.WriteLine("\nOur discounts and promotions:");
             System.Console.WriteLine("*Buy a popcorn plus a large soda and get $2 off one ticket!");
             System.Console.WriteLine("*Buy 3 or more tickets and get one bag of popcorn free!");
             System.Console.WriteLine("*Buy 3 candies and get the 4th free!");
             System.Console.Write("\nWould you like to attend a matinee or evening showing? ");
-            string TimeInput = System.Console.ReadLine();
+            string Time = System.Console.ReadLine();
 
-            if (TimeInput.ToLower().Contains("matinee"))
+            YourTicketOrder.GetTicketOrder();
+
+            if (Time.ToLower().Contains("matinee"))
             {
-                Ticket.GetMatineeTicketData();
+                YourTicketOrder.GetMatineeTicketCost();
             }
             else
             {
-                Ticket.GetEveningTicketData();
+                YourTicketOrder.GetEveningTicketCost();
             }
 
-            System.Console.Write("Would you like to purchase concessions? ");
-            string COncessionInput = System.Console.ReadLine();
+            System.Console.Write("\nWould you like to purchase concessions? ");
+            string ConcessionInput = System.Console.ReadLine();
 
-            if (TimeInput.ToLower().StartsWith("y"))
+            if (ConcessionInput.ToLower().StartsWith("y"))
             {
-
+                YourConcessionOrder.GetConcessionOrder();
+                YourConcessionOrder.GetConcessionCost();
             }
+
+            YourTicketOrder.PopcornPromotion(YourConcessionOrder);
+            YourConcessionOrder.TicketPromotion(YourTicketOrder);
+
+            YourTicketOrder.YourTickets();
+            YourConcessionOrder.YourConcessions();
+
+            YourConcessionOrder.GetandPrintGrandTotal(YourTicketOrder);
+
+            System.Console.WriteLine("\nThank you for using the MovieTicketCalculator! ");
+            System.Console.Write("Press any key to continue... ");
+            System.Console.ReadKey();
         }
     }
 }
