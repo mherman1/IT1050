@@ -6,12 +6,12 @@
         private int AdultTickets;
         private int SeniorTickets;
         private int NumberOfTickets = 0;
-        private double MatineeChildPrice = 3.99;
-        private double MatineeAdultPrice = 5.99;
-        private double MatineeSeniorPrice = 4.50;
-        private double EveningChildPrice = 6.99;
-        private double EveningAdultPrice = 10.99;
-        private double EveningSeniorPrice = 8.50;
+        private const double MatineeChildPrice = 3.99;
+        private const double MatineeAdultPrice = 5.99;
+        private const double MatineeSeniorPrice = 4.50;
+        private const double EveningChildPrice = 6.99;
+        private const double EveningAdultPrice = 10.99;
+        private const double EveningSeniorPrice = 8.50;
         private double TicketCost = 0;
         private double GrandTotal = 0;
 
@@ -28,9 +28,9 @@
 
         public void GetMatineeTicketCost()
         {
-            this.TicketCost += (this.ChildTickets * this.MatineeChildPrice);
-            this.TicketCost += (this.AdultTickets * this.MatineeAdultPrice);
-            this.TicketCost += (this.SeniorTickets * this.MatineeSeniorPrice);
+            this.TicketCost += (this.ChildTickets * MatineeChildPrice);
+            this.TicketCost += (this.AdultTickets * MatineeAdultPrice);
+            this.TicketCost += (this.SeniorTickets * MatineeSeniorPrice);
         }
 
         public void GetEveningTicketCost()
