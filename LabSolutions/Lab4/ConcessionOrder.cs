@@ -8,12 +8,12 @@
         private int Popcorn;
         private int Candy;
         private int TicketDiscount;
-        private const double SmallSodaPrice = 3.50;
-        private const double LargeSodaPrice = 5.99;
-        private const double HotDogPrice = 3.99;
-        private const double PopcornPrice = 4.50;
-        private const double CandyPrice = 1.99;
-        private double ConcessionCost = 0;
+        private const decimal SmallSodaPrice = 3.50M;
+        private const decimal LargeSodaPrice = 5.99M;
+        private const decimal HotDogPrice = 3.99M;
+        private const decimal PopcornPrice = 4.50M;
+        private const decimal CandyPrice = 1.99M;
+        private decimal ConcessionCost = 0.00M;
 
         public void GetConcessionOrder()
         {

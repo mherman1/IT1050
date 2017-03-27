@@ -6,14 +6,14 @@
         private int AdultTickets;
         private int SeniorTickets;
         private int NumberOfTickets = 0;
-        private const double MatineeChildPrice = 3.99;
-        private const double MatineeAdultPrice = 5.99;
-        private const double MatineeSeniorPrice = 4.50;
-        private const double EveningChildPrice = 6.99;
-        private const double EveningAdultPrice = 10.99;
-        private const double EveningSeniorPrice = 8.50;
-        private double TicketCost = 0;
-        private double GrandTotal = 0;
+        private const decimal MatineeChildPrice = 3.99M;
+        private const decimal MatineeAdultPrice = 5.99M;
+        private const decimal MatineeSeniorPrice = 4.50M;
+        private const decimal EveningChildPrice = 6.99M;
+        private const decimal EveningAdultPrice = 10.99M;
+        private const decimal EveningSeniorPrice = 8.50M;
+        private decimal TicketCost = 0.00M;
+        private decimal GrandTotal = 0.00M;
 
         public void GetTicketOrder()
         {
@@ -71,7 +71,7 @@
             System.Console.WriteLine("Total = " + NumberOfTickets);
         }
 
-        public void SetTicketCost(double concessionCost)
+        public void SetTicketCost(decimal concessionCost)
         {
             this.GrandTotal = this.TicketCost + concessionCost;
             System.Console.WriteLine("\nYour Grand Total: " + GrandTotal.ToString("c"));
