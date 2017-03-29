@@ -2,70 +2,62 @@
 {
     class ConcessionOrder
     {
-        private int SmallSoda;
-        private int LargeSoda;
-        private int HotDog;
-        private int Popcorn;
-        private int Candy;
-        private int TicketDiscount;
-        private const decimal SmallSodaPrice = 3.50M;
-        private const decimal LargeSodaPrice = 5.99M;
-        private const decimal HotDogPrice = 3.99M;
-        private const decimal PopcornPrice = 4.50M;
-        private const decimal CandyPrice = 1.99M;
-        private decimal ConcessionCost = 0.00M;
+        int SmallSoda;
+        int LargeSoda;
+        int HotDog;
+        int Popcorn;
+        int Candy;
+        const decimal SmallSodaPrice = 3.50M;
+        const decimal LargeSodaPrice = 5.99M;
+        const decimal HotDogPrice = 3.99M;
+        const decimal PopcornPrice = 4.50M;
+        const decimal CandyPrice = 1.99M;
+        decimal ConcessionCost = 0.00M;
 
-        public void GetConcessionOrder()
+        public void GetConcessionOrder(string concessionInput)
         {
-            System.Console.Write("How many candies? ");
-            this.Candy = int.Parse(System.Console.ReadLine());
-            System.Console.Write("How many bags of popcorn? ");
-            this.Popcorn = int.Parse(System.Console.ReadLine());
-            System.Console.Write("How many hot dogs? ");
-            this.HotDog = int.Parse(System.Console.ReadLine());
-            System.Console.Write("How many small sodas? ");
-            this.SmallSoda = int.Parse(System.Console.ReadLine());
-            System.Console.Write("How many large sodas? ");
-            this.LargeSoda = int.Parse(System.Console.ReadLine());
-
-            if (this.Popcorn >= this.LargeSoda)
+            if (concessionInput.ToLower().StartsWith("y"))
             {
-                this.TicketDiscount = this.LargeSoda;
-            }
-            else
-            {
-                this.TicketDiscount = this.Popcorn;
+                System.Console.Write("How many candies? ");
+                Candy = int.Parse(System.Console.ReadLine());
+                ConcessionCost += (Candy * CandyPrice);
+                System.Console.Write("How many bags of popcorn? ");
+                Popcorn = int.Parse(System.Console.ReadLine());
+                ConcessionCost += (Popcorn * PopcornPrice);
+                System.Console.Write("How many hot dogs? ");
+                HotDog = int.Parse(System.Console.ReadLine());
+                ConcessionCost += (HotDog * HotDogPrice);
+                System.Console.Write("How many small sodas? ");
+                SmallSoda = int.Parse(System.Console.ReadLine());
+                ConcessionCost += (SmallSoda * SmallSodaPrice);
+                System.Console.Write("How many large sodas? ");
+                LargeSoda = int.Parse(System.Console.ReadLine());
+                ConcessionCost += (LargeSoda * LargeSodaPrice);
             }
         }
 
-        public void GetConcessionCost()
+        public void CandyPromotion()
         {
-            ConcessionCost += (this.SmallSoda * SmallSodaPrice);
-            ConcessionCost += (this.LargeSoda * LargeSodaPrice);
-            ConcessionCost += (this.HotDog * HotDogPrice);
-            ConcessionCost += (this.Popcorn * PopcornPrice);
-            ConcessionCost += (this.Candy * CandyPrice);
-
             if (this.Candy >= 3)
             {
-                int FreeCandy = this.Candy / 3;
-                this.Candy += FreeCandy;
+                int FreeCandy = Candy / 3;
+                Candy += FreeCandy;
             }
+        }
+
+        public void TicketDiscountPromotion(TicketOrder ticketOrder)
+        {
+            ticketOrder.GetTicketDiscount(Popcorn, LargeSoda);
         }
 
         public void AddPopcorn()
         {
-            this.Popcorn += 1;
+            Popcorn += 1;
         }
 
-        public void TicketPromotion(TicketOrder ticketOrder)
+        public void PrintYourConcessionOrder()
         {
-            ticketOrder.TicketPromotionDiscount(this.TicketDiscount);
-        }
-
-        public void YourConcessions()
-        {
-            System.Console.WriteLine("\nYour Concessions: ");
+            System.Console.WriteLine("\nConcessions: ");
             System.Console.WriteLine("Candy = " + Candy);
             System.Console.WriteLine("Popcorn = " + Popcorn);
             System.Console.WriteLine("Hot Dogs = " + HotDog);
@@ -73,10 +65,9 @@
             System.Console.WriteLine("Large Sodas = " + LargeSoda);
         }
 
-        public void GetandPrintGrandTotal(TicketOrder ticketOrder)
+        public void GetGrandTotal(TicketOrder ticketOrder)
         {
-            ticketOrder.SetTicketCost(this.ConcessionCost);
+            ticketOrder.PrintGrandTotal(this.ConcessionCost);
         }
-
     }
 }

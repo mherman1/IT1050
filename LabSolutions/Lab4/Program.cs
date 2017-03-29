@@ -10,38 +10,25 @@
             System.Console.WriteLine("Welcome to the MovieTicketCalculator!");
             System.Console.WriteLine("\nOur discounts and promotions:");
             System.Console.WriteLine("*Buy a popcorn plus a large soda and get $2 off one ticket!");
-            System.Console.WriteLine("*Buy 3 or more tickets and get one bag of popcorn free!");
+            System.Console.WriteLine("*Buy 3 or more tickets to an evening show and get one bag of popcorn free!");
             System.Console.WriteLine("*Buy 3 candies and get the 4th free!");
+
             System.Console.Write("\nWould you like to attend a matinee or evening showing? ");
             string Time = System.Console.ReadLine();
-
-            YourTicketOrder.GetTicketOrder();
-
-            if (Time.ToLower().Contains("matinee"))
-            {
-                YourTicketOrder.GetMatineeTicketCost();
-            }
-            else
-            {
-                YourTicketOrder.GetEveningTicketCost();
-            }
+            YourTicketOrder.GetTicketOrder(Time);
 
             System.Console.Write("\nWould you like to purchase concessions? ");
             string ConcessionInput = System.Console.ReadLine();
+            YourConcessionOrder.GetConcessionOrder(ConcessionInput);
 
-            if (ConcessionInput.ToLower().StartsWith("y"))
-            {
-                YourConcessionOrder.GetConcessionOrder();
-                YourConcessionOrder.GetConcessionCost();
-            }
+            YourConcessionOrder.TicketDiscountPromotion(YourTicketOrder);
+            YourTicketOrder.PopcornPromotion(YourConcessionOrder, Time);
+            YourConcessionOrder.CandyPromotion();
 
-            YourTicketOrder.PopcornPromotion(YourConcessionOrder);
-            YourConcessionOrder.TicketPromotion(YourTicketOrder);
-
-            YourTicketOrder.YourTickets();
-            YourConcessionOrder.YourConcessions();
-
-            YourConcessionOrder.GetandPrintGrandTotal(YourTicketOrder);
+            System.Console.Write("\nReview your order... ");
+            YourTicketOrder.PrintYourTicketOrder();
+            YourConcessionOrder.PrintYourConcessionOrder();
+            YourConcessionOrder.GetGrandTotal(YourTicketOrder);
 
             System.Console.WriteLine("\nThank you for using the MovieTicketCalculator! ");
             System.Console.Write("Press any key to continue... ");

@@ -2,81 +2,85 @@
 {
     class TicketOrder
     {
-        private int ChildTickets;
-        private int AdultTickets;
-        private int SeniorTickets;
-        private int NumberOfTickets = 0;
-        private const decimal MatineeChildPrice = 3.99M;
-        private const decimal MatineeAdultPrice = 5.99M;
-        private const decimal MatineeSeniorPrice = 4.50M;
-        private const decimal EveningChildPrice = 6.99M;
-        private const decimal EveningAdultPrice = 10.99M;
-        private const decimal EveningSeniorPrice = 8.50M;
-        private decimal TicketCost = 0.00M;
-        private decimal GrandTotal = 0.00M;
+        int ChildTickets;
+        int AdultTickets;
+        int SeniorTickets;
+        int NumberOfTickets = 0;
+        const decimal MatineeChildPrice = 3.99M;
+        const decimal MatineeAdultPrice = 5.99M;
+        const decimal MatineeSeniorPrice = 4.50M;
+        const decimal EveningChildPrice = 6.99M;
+        const decimal EveningAdultPrice = 10.99M;
+        const decimal EveningSeniorPrice = 8.50M;
+        decimal TicketCost = 0.00M;
+        decimal DiscountTotal = 0.00M;
+        decimal GrandTotal = 0.00M;
 
-        public void GetTicketOrder()
+        public void GetTicketOrder(string time)
         {
             System.Console.Write("How many Child tickets? ");
-            this.ChildTickets = int.Parse(System.Console.ReadLine());
+            ChildTickets = int.Parse(System.Console.ReadLine());
             System.Console.Write("How many Adult tickets? ");
-            this.AdultTickets = int.Parse(System.Console.ReadLine());
+            AdultTickets = int.Parse(System.Console.ReadLine());
             System.Console.Write("How many Senior tickets? ");
-            this.SeniorTickets = int.Parse(System.Console.ReadLine());
+            SeniorTickets = int.Parse(System.Console.ReadLine());
+
             NumberOfTickets += ChildTickets + AdultTickets + SeniorTickets;
+
+            if (time.ToLower().Contains("matinee"))
+            {
+                TicketCost += (ChildTickets * MatineeChildPrice);
+                TicketCost += (AdultTickets * MatineeAdultPrice);
+                TicketCost += (SeniorTickets * MatineeSeniorPrice);
+            }
+            else
+            {
+                TicketCost += (ChildTickets * EveningChildPrice);
+                TicketCost += (AdultTickets * EveningAdultPrice);
+                TicketCost += (SeniorTickets * EveningSeniorPrice);
+            }
         }
 
-        public void GetMatineeTicketCost()
+        public void PopcornPromotion(ConcessionOrder concessionOrder, string time)
         {
-            this.TicketCost += (this.ChildTickets * MatineeChildPrice);
-            this.TicketCost += (this.AdultTickets * MatineeAdultPrice);
-            this.TicketCost += (this.SeniorTickets * MatineeSeniorPrice);
-        }
-
-        public void GetEveningTicketCost()
-        {
-            this.TicketCost += (this.ChildTickets * EveningChildPrice);
-            this.TicketCost += (this.AdultTickets * EveningAdultPrice);
-            this.TicketCost += (this.SeniorTickets * EveningSeniorPrice);
-        }
-
-        public void PopcornPromotion(ConcessionOrder concessionOrder)
-        {
-            if (NumberOfTickets >= 3)
+            if (NumberOfTickets >= 3 && time.ToLower().Contains("evening"))
             {
                 concessionOrder.AddPopcorn();
             }
         }
 
-        public void TicketPromotionDiscount(int ticketDiscount)
+        public void GetTicketDiscount(int popcorn, int largeSoda)
         {
-            if (ticketDiscount >= NumberOfTickets)
+            if (popcorn >= largeSoda && NumberOfTickets >= largeSoda)
             {
-                int DiscountTotal = NumberOfTickets * 2;
+                DiscountTotal = largeSoda * 2;
+                TicketCost -= DiscountTotal;
+            }
+            else if (largeSoda >= popcorn && NumberOfTickets >= popcorn)
+            {
+                DiscountTotal = popcorn * 2;
                 TicketCost -= DiscountTotal;
             }
             else
             {
-                int DiscountTotal = ticketDiscount * 2;
+                DiscountTotal = NumberOfTickets * 2;
                 TicketCost -= DiscountTotal;
             }
         }
 
-        public void YourTickets()
+        public void PrintYourTicketOrder()
         {
-            System.Console.WriteLine("\nYour Tickets: ");
+            System.Console.WriteLine("\nTickets: ");
             System.Console.WriteLine("Child = " + ChildTickets);
             System.Console.WriteLine("Adult = " + AdultTickets);
             System.Console.WriteLine("Senior = " + SeniorTickets);
             System.Console.WriteLine("Total = " + NumberOfTickets);
         }
 
-        public void SetTicketCost(decimal concessionCost)
+        public void PrintGrandTotal(decimal concessionCost)
         {
             this.GrandTotal = this.TicketCost + concessionCost;
             System.Console.WriteLine("\nYour Grand Total: " + GrandTotal.ToString("c"));
         }
-
-
     }
 }
