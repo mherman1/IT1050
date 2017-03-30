@@ -2,6 +2,7 @@
 {
     class ConcessionOrder
     {
+        string ConcessionInput;
         int SmallSoda;
         int LargeSoda;
         int HotDog;
@@ -14,9 +15,12 @@
         const decimal CandyPrice = 1.99M;
         decimal ConcessionCost = 0.00M;
 
-        public void GetConcessionOrder(string concessionInput)
+        public void GetConcessionOrder()
         {
-            if (concessionInput.ToLower().StartsWith("y"))
+            System.Console.Write("\nWould you like to purchase concessions? ");
+            ConcessionInput = System.Console.ReadLine();
+
+            if (ConcessionInput.ToLower().StartsWith("y"))
             {
                 System.Console.Write("How many candies? ");
                 Candy = int.Parse(System.Console.ReadLine());
@@ -65,9 +69,9 @@
             System.Console.WriteLine("Large Sodas = " + LargeSoda);
         }
 
-        public void GetGrandTotal(TicketOrder ticketOrder)
+        public void PrintGrandTotal(TicketOrder ticketOrder)
         {
-            ticketOrder.PrintGrandTotal(this.ConcessionCost);
+            ticketOrder.GetGrandTotal(this.ConcessionCost);
         }
     }
 }

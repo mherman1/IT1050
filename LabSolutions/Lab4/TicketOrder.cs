@@ -2,6 +2,7 @@
 {
     class TicketOrder
     {
+        string Time;
         int ChildTickets;
         int AdultTickets;
         int SeniorTickets;
@@ -16,8 +17,10 @@
         decimal DiscountTotal = 0.00M;
         decimal GrandTotal = 0.00M;
 
-        public void GetTicketOrder(string time)
+        public void GetTicketOrder()
         {
+            System.Console.Write("\nWould you like to attend a matinee or evening showing? ");
+            Time = System.Console.ReadLine();
             System.Console.Write("How many Child tickets? ");
             ChildTickets = int.Parse(System.Console.ReadLine());
             System.Console.Write("How many Adult tickets? ");
@@ -27,7 +30,7 @@
 
             NumberOfTickets += ChildTickets + AdultTickets + SeniorTickets;
 
-            if (time.ToLower().Contains("matinee"))
+            if (Time.ToLower().Contains("matinee"))
             {
                 TicketCost += (ChildTickets * MatineeChildPrice);
                 TicketCost += (AdultTickets * MatineeAdultPrice);
@@ -41,9 +44,9 @@
             }
         }
 
-        public void PopcornPromotion(ConcessionOrder concessionOrder, string time)
+        public void PopcornPromotion(ConcessionOrder concessionOrder)
         {
-            if (NumberOfTickets >= 3 && time.ToLower().Contains("evening"))
+            if (NumberOfTickets >= 3 && Time.ToLower().Contains("evening"))
             {
                 concessionOrder.AddPopcorn();
             }
@@ -77,7 +80,7 @@
             System.Console.WriteLine("Total = " + NumberOfTickets);
         }
 
-        public void PrintGrandTotal(decimal concessionCost)
+        public void GetGrandTotal(decimal concessionCost)
         {
             this.GrandTotal = this.TicketCost + concessionCost;
             System.Console.WriteLine("\nYour Grand Total: " + GrandTotal.ToString("c"));
