@@ -30,12 +30,9 @@
             {
                 System.Console.Write(i + " ".PadLeft(3));
             }
-
             System.Console.Write("\n".PadRight(4) + "+---+---+---+---+---+---+---+---+");
-
             for (int i = 0; i < 8; i++)
             {
-                
                 System.Console.WriteLine();
                 System.Console.Write(i + "  |");
                 for (int j = 0; j < 8; j++)
@@ -44,7 +41,6 @@
                 }
                 System.Console.Write("\n".PadRight(4) + "+---+---+---+---+---+---+---+---+");
             }
-
             System.Console.WriteLine();
         }
 
