@@ -2,22 +2,21 @@
 {
     class Board
     {
-        private string[][] board;
+        private string[,] board;
         public Board()
         {
-            board = new string[8][];
+            board = new string[8, 8];
             for (int i = 0; i < 8; i++)
             {
-                board[i] = new string[8];
                 for (int j = 0; j < 8; j++)
                 {
                     if (i < 2 || i > 5)
                     {
-                        board[i][j] = "X";
+                        board[i, j] = "X";
                     }
                     else
                     {
-                        board[i][j] = " ";
+                        board[i, j] = " ";
                     }
                 }
             }
@@ -37,7 +36,7 @@
                 System.Console.Write(i + "  |");
                 for (int j = 0; j < 8; j++)
                 {
-                    System.Console.Write(" " + board[i][j] + " |");
+                    System.Console.Write(" " + board[i, j] + " |");
                 }
                 System.Console.Write("\n".PadRight(4) + "+---+---+---+---+---+---+---+---+");
             }
@@ -54,8 +53,30 @@
             int dx = int.Parse(System.Console.ReadLine());
             System.Console.Write("Enter Destination Y coordinate between 0 and 7: ");
             int dy = int.Parse(System.Console.ReadLine());
-            board[dy][dx] = board[y][x];
-            board[y][x] = " ";
+            if ((x >= 0 && y >= 0) && (dx >= 0 && dy >= 0))
+            {
+                if ((x <= 7 && y <= 7) && (dx <= 7 && dy <= 7))
+                {
+                    board[dy, dx] = board[y, x];
+                    board[y, x] = " ";
+                }
+                else
+                {
+                    System.Console.Clear();
+                    System.Console.WriteLine("Coodinates out of range! Game Over!");
+                    System.Console.WriteLine("Press any key to close console...");
+                    System.Console.ReadKey();
+                    System.Environment.Exit(0);
+                }
+            }
+            else
+            {
+                System.Console.Clear();
+                System.Console.WriteLine("Coodinates out of range! Game Over!");
+                System.Console.WriteLine("Press any key to close console...");
+                System.Console.ReadKey();
+                System.Environment.Exit(0);
+            }
         }
     }
 }
