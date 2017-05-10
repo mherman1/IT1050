@@ -11,9 +11,9 @@
             this.MaxWeight = maxWeight;
         }
 
-        public void AddOccupant(string name, double weight, int index)
+        public void AddOccupant(Passenger passenger, int index)
         {
-            this.Occupants[index] = new Passenger(name, weight);
+            this.Occupants[index] = passenger;
         }
 
         public double GetCurrentWeight()
